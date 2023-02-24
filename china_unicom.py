@@ -295,14 +295,16 @@ if __name__ == "__main__":
     user_map = []
     cklist = get_cookie("PHONE_NUM")
     for i in range(len(cklist)):
-        #以#分割开的ck
         split1 = cklist[i].split("&")
+        split2 = cklist[i].split("\n")
         if len(split1)>1:
             for j in range(len(split1)):
                 user_map.append(split1[j])
+        elif len(split2)>1:
+            for j in range(len(split2)):
+                user_map.append(split2[j])
         else:
             user_map.append(cklist[i])
-
     
     
     for i in range(len(user_map)):
